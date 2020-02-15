@@ -1,40 +1,35 @@
-package com.chap01.recipe01;
+package com.chap01;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import java.io.*;
-import java.time.*;
 
-@WebServlet(name = "CurrentDateAndTime", urlPatterns = {"/CurrentDateAndTime"})
-public class CurrentDateAndTime extends HttpServlet {
-
-    LocalDateTime currDateAndTime = LocalDateTime.now();
-
+@WebServlet(urlPatterns = {"/SimpleServletNoDescriptor"})
+public class SimpleServletV3 extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            /*
+             * TODO output your page here. You may use following sample code.
+             */
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CurrentDateAndTime</title>");
+            out.println("<title>Servlet SimpleServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CurrentDateAndTime at " + request.getContextPath() +
-                    "</h1>");
-            out.println("<br/>");
-            synchronized(currDateAndTime){
-                currDateAndTime = LocalDateTime.now();
-                out.println("The current date and time is: " + currDateAndTime);
-            }
+            out.println("<h2>Servlet SimpleServlet at " + request.getContextPath() + "</h2>");
+            out.println("<br/>Look ma, no WEB-XML!");
             out.println("</body>");
             out.println("</html>");
         } finally {
             out.close();
         }
     }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,4 +43,5 @@ public class CurrentDateAndTime extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
 }
