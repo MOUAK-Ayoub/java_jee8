@@ -1,28 +1,23 @@
-package com.chap01.recipe01;
+package com.chap01;
 
 import javax.servlet.*;
-import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import java.io.*;
 
-@WebServlet(urlPatterns = {"/SimpleServletNoDescriptor"})
-public class SimpleServletV3 extends HttpServlet {
+public class SimpleServlet  extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /*
-             * TODO output your page here. You may use following sample code.
-             */
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SimpleServlet</title>");
+            out.println("<title>Servlet ay  oub SimpleServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h2>Servlet SimpleServlet at " + request.getContextPath() + "</h2>");
-            out.println("<br/>Look ma, no WEB-XML!");
+            out.println("<br/>Welcome to Java EE Recipes ayoub mouak!");
             out.println("</body>");
             out.println("</html>");
         } finally {

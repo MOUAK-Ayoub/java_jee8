@@ -1,0 +1,2 @@
+
+To kill a process : taskkill /F /PID pid_number
