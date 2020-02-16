@@ -7,6 +7,7 @@ import javax.servlet.http.*;
 @WebListener
 public final class AttributeListener implements ServletContextListener,
         HttpSessionAttributeListener {
+
     private ServletContext context = null;
 
     public void attributeAdded(HttpSessionBindingEvent se) {
