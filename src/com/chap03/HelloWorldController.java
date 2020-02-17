@@ -2,8 +2,6 @@ package com.chap03;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.annotation.*;
-import javax.faces.bean.*;
 import javax.inject.Named;
 import java.io.Serializable;
 
