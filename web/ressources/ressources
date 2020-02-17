@@ -1,2 +1,2 @@
-
+To list processes/services(pid_number) :  netstat -ano
 To kill a process : taskkill /F /PID pid_number

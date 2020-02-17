@@ -1,9 +1,14 @@
-package com.chap01;
+package com.chap01.recipe01;
 
-import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.*;
-import java.io.*;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
 
 @WebServlet(name = "DownloadServlet", urlPatterns = {"/DownloadServlet"})
 public class DownloadServlet extends HttpServlet {
@@ -11,10 +16,9 @@ public class DownloadServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        // Read parameter from form that contains the file name to download
+// Read parameter from form that contains the file name to download
         String fileToDownload = request.getParameter("filename");
-        // Call the download method with the given file
+// Call the download method with the given file
         System.err.println("Downloading file now...");
         doDownload(request, response, fileToDownload);
     }
@@ -33,9 +37,7 @@ public class DownloadServlet extends HttpServlet {
                 + "\"");
         InputStream in = context.getResourceAsStream("/" + originalFile);
         byte[] bbuf = new byte[BYTES];
-        while ((in != null) &&
-                ((length = in.read(bbuf)) != -1)
-        ) {
+        while ((in != null) && ((length = in.read(bbuf)) != -1)) {
             outStream.write(bbuf, 0, length);
         }
         outStream.flush();
@@ -46,5 +48,4 @@ public class DownloadServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
 }
