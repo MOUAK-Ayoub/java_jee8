@@ -21,7 +21,7 @@ public class HelloWorldController implements Serializable {
     @PostConstruct
     public void init() {
         System.out.println("Instantiated helloWorldController");
-        hello = "Hello World";
+        hello = "Hello World from Paris";
     }
 
     /**
