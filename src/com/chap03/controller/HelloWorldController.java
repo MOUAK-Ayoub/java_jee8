@@ -1,4 +1,4 @@
-package com.chap03;
+package com.chap03.controller;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
