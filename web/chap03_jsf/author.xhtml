@@ -7,7 +7,7 @@
     <title>Recipe 3-3: Building Sophisticated JSF Views with Components</title>
 </h:head>
 <h:body>
-    <h:form id="componentForm">
+    <h:form id="componentForm" >
         <h1>JSF Components, Creating a Sophisticated Page</h1>
         <p>
             The view for this page is made up entirely of JSF standard components.
@@ -17,22 +17,34 @@
         </p>
         <p>Book Recommendation: Java 9 Recipes
             <br/>
-            <h:graphicImage id="java9recipes" library="ressources" name="/images/davinci.jpg"/>
+            <h:graphicImage id="java9recipes" library="images"    name="davinci.jpg" />
             <br/>
             <h:dataTable id="authorTable" value="#{authorController.authorList}"
                          var="author">
+
                 <f:facet name="header">
-                    Java 9 Recipes Authors
+                    Last name
+                </f:facet>
+                <f:facet name="header">
+                    First name
                 </f:facet>
                 <h:column>
-                    <h:outputText id="authorName" value="#{author.first} #{author.last}"/>
+                    <h:outputText id="authorFirstName" value="#{author.first}"/>
                 </h:column>
+
+                <h:column>
+                    <h:outputText id="authorLastName" value="#{author.last}"/>
+                </h:column>
+                <f:facet name="footer">
+                    Table footer
+                </f:facet>
             </h:dataTable>
             <br/>
             <br/>
             <p>
                 Use the following form to add an author to the list.
             </p>
+            <h:panelGroup id="panel">
             <h:outputLabel for="newAuthorFirst" value="New Author First Name: "/>
             <h:inputText id="newAuthorFirst" value="#{authorController.newAuthorLast}"/>
             <br/>
@@ -43,8 +55,11 @@
                              value="#{authorController.bio}"/>
             <br/>
             <br/>
-            <h:commandButton id="addAuthor" action="#{authorController.addAuthor}"
-                             value="Add Author"/>
+            <h:commandButton id="addAuthor"  action="#{authorController.addAuthor}"
+                             value="Add Author">
+                <f:ajax event="action" execute="@form" render="@all"/>
+            </h:commandButton>
+            </h:panelGroup>
             <br/>
             <br/>
         </p>

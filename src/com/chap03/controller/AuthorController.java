@@ -27,7 +27,7 @@ public class AuthorController implements Serializable {
         System.out.println("initializing authors");
         authorList = new ArrayList<>();
         authorList.add(new Author("Josh", "Juneau", null));
-        authorList.add(new Author("Carl", "Dea", null));
+        authorList.add(new Author("Ayoub", "Dea", null));
         authorList.add(new Author("Mark", "Beaty", null));
         authorList.add(new Author("John", "O'Conner", null));
         authorList.add(new Author("Freddy", "Guime", null));
@@ -35,6 +35,7 @@ public class AuthorController implements Serializable {
     }
 
     public void addAuthor() {
+
         getAuthorList().add(
                 new Author(this.getNewAuthorFirst(),
                         this.getNewAuthorLast(),

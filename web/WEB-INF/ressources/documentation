@@ -6,3 +6,5 @@ Jars needed are:
 Jsf 2.3 : - Add @FacesConfig with version 2.3 on a bean
           - Adding CDI 2.0 beans.xml file. If not, @FacesConfig have to be declared on every JSF controller)
           - We can add @ApplicationScoped the JSF configuration bean instead of adding beans.xml
+
+
